@@ -1,0 +1,28 @@
+# Django Core
+Django>=5.0,<6.0
+
+# Django REST Framework
+djangorestframework>=3.15,<4.0
+
+# Authentication
+django-allauth>=0.60,<0.62
+
+# Database
+psycopg2-binary>=2.9,<3.0
+
+# Background Processing
+celery>=5.4,<6.0
+redis>=5.0,<6.0
+
+# AI Layer
+langgraph>=0.1,<0.2
+pydanticai>=0.1,<0.2
+openai>=1.40,<2.0
+
+# Storage
+django-storages[boto3]>=1.14,<2.0
+Pillow>=10.0,<11.0
+
+# Development Tools (optional but useful)
+django-extensions>=3.2,<4.0
+ipython>=8.0,<9.0
