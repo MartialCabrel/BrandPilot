@@ -40,3 +40,8 @@ Today, I examined the existing BrandPilot project to understand its current stat
 
 ### Notes:
 The project appears to have a solid foundation with the Django project structure and basic apps created. However, to follow the instructed workflow properly, we should ensure Milestone 0 is fully marked as complete before proceeding.
+
+### GitHub Integration:
+- Connected local repository to GitHub remote: https://github.com/MartialCabrel/BrandPilot.git
+- Pushed initial commits (project structure + requirements/README) to GitHub
+- Repository is now visible on GitHub under MartialCabrel/BrandPilot
