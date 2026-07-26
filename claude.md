@@ -1,7 +1,7 @@
 # Claude Conversation Log
 
 ## Project: BrandPilot
-## Date: 2026-07-25
+## Date: 2026-07-26
 
 ### Summary of Work Done
 
@@ -46,7 +46,7 @@ The project appears to have a solid foundation with the Django project structure
 - Pushed initial commits (project structure + requirements/README) to GitHub
 - Repository is now visible on GitHub under MartialCabrel/BrandPilot
 
-## Milestone 1: Authentication and Teams and setup
+## Milestone 1: Authentication and Teams - WORK IN PROGRESS
 
 ### Work Completed So Far:
 1. **Authentication Setup**:
@@ -57,7 +57,13 @@ The project appears to have a solid foundation with the Django project structure
    - Updated base template with navigation bar showing login/logout links
    - Created home page view and template
 
-2. **Teams and Membership Models**:
+2. **Template Fix**:
+   - Fixed TemplateSyntaxError by adding `{% load static %}` to base.html template
+   - Also fixed incorrect custom template tags (`{% extra_js %}` and `{% extra_css %}`) by changing them to proper block syntax:
+     - Changed `{% extra_js %}` to `{% block extra_js %}{% endblock %}`
+     - Changed `{% extra_css %}` to `{% block extra_css %}{% endblock %}`
+
+3. **Teams and Membership Models**:
    - Existing models in accounts/models.py:
      - UserProfile (extends User with bio, avatar, preferences)
      - Team (with owner, name, description)
@@ -70,11 +76,11 @@ The project appears to have a solid foundation with the Django project structure
    - Fixed content/models.py:
      - Changed foreign key references from 'accounts.User' to User (from django.contrib.auth.models) in ContentDraft and ContentApproval models
 
-3. **Database Setup**:
+4. **Database Setup**:
    - Identified PostgreSQL connection issues in development environment
    - Switched to SQLite for development (changed DATABASES in settings.py)
    - Created and applied migrations for all apps
-   - Started development server successfully
+   - Started development server successfully (running on http://127.0.0.1:8000)
 
 ### Remaining Tasks for Milestone 1:
 - Implement views and URLs for:
@@ -88,3 +94,10 @@ The project appears to have a solid foundation with the Django project structure
 
 ### Next Steps:
 Continue implementing the remaining features for Milestone 1, then request review before proceeding to Milestone 2.
+
+### Current Status:
+- Development server is running successfully at http://127.0.0.1:8000
+- Home page loads correctly showing the welcome message
+- Login and signup pages are accessible and functional
+- All static files (CSS) are loading properly
+- No template errors are present
