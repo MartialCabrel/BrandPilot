@@ -17,7 +17,7 @@ class SocialPlatform(models.Model):
 
 
 class SocialAccount(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='social_accounts')
     platform = models.ForeignKey(SocialPlatform, on_delete=models.CASCADE)
     provider_account_id = models.CharField(max_length=255)  # ID from the platform
     access_token = models.TextField()  # Encrypted in production

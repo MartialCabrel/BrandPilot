@@ -16,7 +16,7 @@ redis>=5.0,<6.0
 
 # AI Layer
 langgraph>=0.1,<0.2
-pydanticai>=0.1,<0.2
+# pydanticai>=0.1,<0.2  # Package not found - using pydantic directly
 openai>=1.40,<2.0
 
 # Storage

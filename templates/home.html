@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Home - BrandPilot{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+            <h1 class="display-4 mb-4">Welcome to BrandPilot</h1>
+            <p class="lead mb-5">
+                An autonomous AI-powered digital marketing team that creates, approves, publishes, analyzes, and continuously optimizes marketing content across multiple platforms.
+            </p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-5">
+                <a href="{% url 'account_login' %}" class="btn btn-primary btn-lg me-md-2">Get Started</a>
+                <a href="{% url 'account_signup' %}" class="btn btn-outline-primary btn-lg">Sign Up Free</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

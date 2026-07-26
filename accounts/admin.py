@@ -11,6 +11,12 @@ class UserProfileInline(admin.StackedInline):
     verbose_name_plural = 'profile'
 
 
+# Inline for Membership in Team admin
+class MembershipInline(admin.TabularInline):
+    model = Membership
+    extra = 1
+
+
 # Extend User admin
 class UserAdmin(BaseUserAdmin):
     inlines = (UserProfileInline,)
@@ -25,7 +31,7 @@ admin.site.register(User, UserAdmin)
 class TeamAdmin(admin.ModelAdmin):
     list_display = ('name', 'owner', 'created_at')
     search_fields = ('name', 'description')
-    filter_horizontal = ('members',)  # This will use the through model automatically
+    inlines = (MembershipInline,)  # Use inline to manage members
 
 
 @admin.register(Membership)

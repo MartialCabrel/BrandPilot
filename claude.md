@@ -20,7 +20,7 @@ Today, I examined the existing BrandPilot project to understand its current stat
 
 3. **Current Status Assessment**:
    - Some Milestone 0 tasks appear partially completed (project structure, basic docs)
-   - However, according to project_progress.md, Milestone 0 is marked as incomplete
+   - However, according to project_progress.md, Milestone 0 was marked as incomplete
 
 ### Next Steps Recommended:
 1. Create this claude.md file to track our conversation (completed)
@@ -45,3 +45,46 @@ The project appears to have a solid foundation with the Django project structure
 - Connected local repository to GitHub remote: https://github.com/MartialCabrel/BrandPilot.git
 - Pushed initial commits (project structure + requirements/README) to GitHub
 - Repository is now visible on GitHub under MartialCabrel/BrandPilot
+
+## Milestone 1: Authentication and Teams - WORK IN PROGRESS
+
+### Work Completed So Far:
+1. **Authentication Setup**:
+   - Configured django-allauth in settings.py (updated to use modern settings: ACCOUNT_LOGIN_METHODS and ACCOUNT_SIGNUP_FIELDS)
+   - Created custom templates for login and signup:
+     - templates/account/login.html
+     - templates/account/signup.html
+   - Updated base template with navigation bar showing login/logout links
+   - Created home page view and template
+
+2. **Teams and Membership Models**:
+   - Existing models in accounts/models.py:
+     - UserProfile (extends User with bio, avatar, preferences)
+     - Team (with owner, name, description)
+     - Membership (through model for Team-ManyToMany-User with role)
+   - Fixed admin.py:
+     - Removed problematic filter_horizontal for members field (which uses a through model)
+     - Added MembershipInline to TeamAdmin for managing members via inline
+   - Fixed connections/models.py:
+     - Added related_name='social_accounts' to SocialAccount.user field to avoid reverse accessor clashes
+   - Fixed content/models.py:
+     - Changed foreign key references from 'accounts.User' to User (from django.contrib.auth.models) in ContentDraft and ContentApproval models
+
+3. **Database Setup**:
+   - Identified PostgreSQL connection issues in development environment
+   - Switched to SQLite for development (changed DATABASES in settings.py)
+   - Created and applied migrations for all apps
+   - Started development server successfully
+
+### Remaining Tasks for Milestone 1:
+- Implement views and URLs for:
+  - Team creation, listing, updating, deletion
+  - Inviting users to join a team (via email)
+  - Managing team roles (owner, admin, member)
+- Design and implement UI for team management (using Django templates + Bootstrap 5 + HTMX + Alpine.js)
+- Implement role-based access control checks in views and templates
+- Complete email verification and password reset flows (already handled by allauth, but need to style/templates)
+- Add logout functionality (already in navbar via allauth URL)
+
+### Next Steps:
+Continue implementing the remaining features for Milestone 1, then request review before proceeding to Milestone 2.

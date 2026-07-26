@@ -96,7 +96,7 @@ class ContentDraft(models.Model):
     # Alternatively, we could have a many-to-many through model.
     is_approved = models.BooleanField(default=False)
     approved_by = models.ForeignKey(
-        'accounts.User',  # Assuming we extend User or use a profile model
+        User,  # Changed from 'accounts.User'
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
@@ -114,7 +114,7 @@ class ContentApproval(models.Model):
     """Tracks the approval process for a content draft (if multi-step approval is needed)."""
     content_draft = models.ForeignKey(ContentDraft, on_delete=models.CASCADE, related_name='approvals')
     approver = models.ForeignKey(
-        'accounts.User',
+        User,  # Changed from 'accounts.User'
         on_delete=models.SET_NULL,
         null=True,
         blank=True,

@@ -10,8 +10,8 @@
 - [x] Create initial project documentation (README, architecture docs)
 
 ### Milestone 1: Authentication and Teams
-- [ ] Implement user registration, login, password reset (Django auth + django-allauth)
-- [ ] Create Team and Membership models
+- [x] Implement user registration, login, password reset (Django auth + django-allauth)
+- [x] Create Team and Membership models
 - [ ] Implement team creation, invitation, and role-based access control
 - [ ] Design and implement UI for auth and team management
 
