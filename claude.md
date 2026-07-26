@@ -46,7 +46,7 @@ The project appears to have a solid foundation with the Django project structure
 - Pushed initial commits (project structure + requirements/README) to GitHub
 - Repository is now visible on GitHub under MartialCabrel/BrandPilot
 
-## Milestone 1: Authentication and Teams - WORK IN PROGRESS
+## Milestone 1: Authentication and Teams and setup
 
 ### Work Completed So Far:
 1. **Authentication Setup**:
